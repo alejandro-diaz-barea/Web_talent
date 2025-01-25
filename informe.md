@@ -1,3 +1,5 @@
+# Informe técnico Talent ScoutTech
+
 ## Parte 1 - SQLi
 1.a)
 Cuando se inyecta en el campo usuario el valor ' " ' , lanza un error que nos dice la consulta completa que realiza a la base de datos
