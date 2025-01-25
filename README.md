@@ -3,6 +3,7 @@
 
 # Informe de pentesting
 
+[informe_pentesting.md](informe_pentesting.md)
 
 # Codigo corregido
 https://github.com/alejandro-diaz-barea/pentesting_web-talent.git
