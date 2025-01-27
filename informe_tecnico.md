@@ -7,14 +7,14 @@ Cuando se inyecta en el campo usuario el valor ' " ' , lanza un error que nos di
 ![](error.png)
 
 
-| **Preguntas**                                                      | **Respuestas**                                         |
-| ------------------------------------------------------------------ | ------------------------------------------------------ |
-| **Escribo los valores ...**                                        | `"`                                                    |
-| **En el campo ...**                                                | Usuario                                                |
-| **Del formulario de la página ...**                                | Login                                                  |
-| **La consulta SQL que se ejecuta es ...**                          | `SELECT userId, password FROM users WHERE username=""` |
-| **Campos del formulario web utilizados en la consulta SQL ...**    | `username`                                             |
-| **Campos del formulario web NO utilizados en la consulta SQL ...** | `password`                                             |
+| **Preguntas** | **Respuestas** |
+| -| -|
+| **Escribo los valores ...** | `"`  |
+| **En el campo ...** | Usuario  |
+| **Del formulario de la página ...** | Login  |
+| **La consulta SQL que se ejecuta es ...** | `SELECT userId, password FROM users WHERE username=""` |
+| **Campos del formulario web utilizados en la consulta SQL ...**| `username`|
+| **Campos del formulario web NO utilizados en la consulta SQL ...** | `password` |
 
 
 1.b) 
@@ -43,11 +43,11 @@ Como se ve en la imagen , la carga de datos devuelta en **bytes** es mucho  mayo
 
 Este método nos da una vulnerabilidad de **inyección SQL**, permitiendo a un atacante autenticarse sin conocer credenciales legítimas, simplemente explotando contraseñas.
 
-| **Preguntas**                                             | **Respuestas**                                                                                                                  |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Explicación del ataque**                                | El ataque consiste en repetir consultas SQL modificadas utilizando en cada interacción una contraseña diferente del diccionario |
-| **Campo de usuario con que el ataque ha tenido éxito**    | `username`                                                                                                                      |
-| **Campo de contraseña con que el ataque ha tenido éxito** | `password`                                                                                                                      |
+| **Preguntas** | **Respuestas** |
+| - | -|
+| **Explicación del ataque** | El ataque consiste en repetir consultas SQL modificadas utilizando en cada interacción una contraseña diferente del diccionario |
+| **Campo de usuario con que el ataque ha tenido éxito**    | `username` |
+| **Campo de contraseña con que el ataque ha tenido éxito** | `password` |
 
 
 
@@ -89,18 +89,31 @@ $result = $stmt->execute();
 
 Esto evitas las inyecciones porque trata a la variable username como un texto en vez de como parte de la consulta directamente.
 
-| **Preguntas**             | **Respuestas**                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| **Explicación del error** | Se concatena directamente la entrada del usuario en la consulta                 |
-| **Solución**              | Cambiar la línea con el código inseguro por la versión con consultas preparadas |
+| **Preguntas** | **Respuestas** |
+| - | - |
+| **Explicación del error** | Se concatena directamente la entrada del usuario en la consulta |
+| **Solución** | Cambiar la línea con el código inseguro por la versión con consultas preparadas |
 
 ## Parte 2 - XSS
 
+1.d)
+
+La línea vulnerable es está
+`$query = "INSERT INTO comments (playerId, userId, body) VALUES ('".$_GET['id']."', '".$_COOKIE['userId']."', '$body')";`
+
+Un atacante puede **modificar la cookie** `userId` para suplantar a otros usuarios y hacer comentarios en su nombre. El ataque se ejecutaría así:
+
+Usando herramientas como **DevTools** en el navegador (F12 → Application → Cookies), cambiar el valor de `userId` por el de otro usuario registrado
+
+- Ejemplo: Modificar la cookie para hacerse pasar por `admin`:
+	```php
+	document.cookie = "userId=1";
+
 2.a) 
 
-| **Introduzco el mensaje ...**               | **En el formulario de la página ...**            |
-|---------------------------------------------|--------------------------------------------------|
-| `<script>alert('hola')</script>`            | En el formulario de comentarios de la página    |
+| **Introduzco el mensaje ...**  | **En el formulario de la página ...**  |
+|-|-
+| `<script>alert('hola')</script>`| En el formulario de comentarios de la página |
 
 ![](alert.png)
 
@@ -119,9 +132,9 @@ Como se puede ver en el código para hacer la consulta a la base de datos mete e
 
 2.d)
 
-| **Otras páginas afectadas ...** | buscador.php                                                                                                                        |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **¿Cómo lo he descubierto?**    | Ocurre en el buscador de jugadores y me he dado cuenta por el código, el cual mete la variable directamente en la consulta tambien. |
+| **Otras páginas afectadas ...** | buscador.php |
+| - | -|
+| **¿Cómo lo he descubierto?** | Ocurre en el buscador de jugadores y me he dado cuenta por el código, el cual mete la variable directamente en la consulta tambien. |
 
 ![](query.png)
 
