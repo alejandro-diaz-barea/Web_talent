@@ -50,7 +50,7 @@ Este método nos da una vulnerabilidad de **inyección SQL**, permitiendo a un a
 
 
 
-![[Pasted image 20250120120731.png]]
+!()[Pasted image 20250120120731.png]
 
 
 
