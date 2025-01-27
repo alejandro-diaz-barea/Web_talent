@@ -392,4 +392,5 @@ Un ataque como el del apartado b, pero aplicado a este caso sería así:
 ```
 
 Aún así cuando lo he aplicado da este mensaje
+
 ![](warning_alert.png)
