@@ -102,20 +102,20 @@ Esto evitas las inyecciones porque trata a la variable username como un texto en
 |---------------------------------------------|--------------------------------------------------|
 | `<script>alert('hola')</script>`            | En el formulario de comentarios de la página    |
 
-![[Pasted image 20250121123314.png]]
+![](alert.png)
 
-![[Pasted image 20250121123230.png]]
+![](alert_view.png)
 
 2.b)
 
 &amp; se usa en HTML porque & tiene un significado especial: introduce entidades HTML. Si escribes & directamente en un enlace con parámetros GET, el navegador podría confundirlo con una entidad, causando errores algunos casos. Por eso, en HTML, se usa &amp. 
-![[Pasted image 20250121123852.png]]
+![](amp.png)
 
 2.c)
 
 Como se puede ver en el código para hacer la consulta a la base de datos mete el parámetro id tal y como lo recibe de la página sin validación ninguna esto es un problema porque se puede ejecutar SQL inyection
 
-![[Pasted image 20250121124546.png]]
+![](list_comments.png)
 
 2.d)
 
@@ -123,7 +123,7 @@ Como se puede ver en el código para hacer la consulta a la base de datos mete e
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **¿Cómo lo he descubierto?**    | Ocurre en el buscador de jugadores y me he dado cuenta por el código, el cual mete la variable directamente en la consulta tambien. |
 
-![[Pasted image 20250121125149.png]]
+![](query.png)
 
 ## Parte 3 - Control de acceso, autenticación y sesiones de usuarios
 
@@ -326,7 +326,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
 3.d)
 
-![[Pasted image 20250125111826.png]]
+![](private.png)
 
 Como se puede ver no tenemos acceso por lo que no hay que implementar nada
 
@@ -348,7 +348,7 @@ Introduzco ->
 <button><a href="http://web.pagos/donate.php?amount=100&receiver=attacker">click</a></button>
 ```
 
-![[Pasted image 20250121131840.png]]
+![](button.png)
 
 5.b)
 
@@ -392,4 +392,4 @@ Un ataque como el del apartado b, pero aplicado a este caso sería así:
 ```
 
 Aún así cuando lo he aplicado da este mensaje
-![[Pasted image 20250121134100.png]]
+![](warning_alert.png)
