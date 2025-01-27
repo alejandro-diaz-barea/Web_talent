@@ -3,7 +3,8 @@
 ## Parte 1 - SQLi
 1.a)
 Cuando se inyecta en el campo usuario el valor ' " ' , lanza un error que nos dice la consulta completa que realiza a la base de datos
-![[Pasted image 20250120113604.png]]
+
+![](error.png)
 
 
 | **Preguntas**                                                      | **Respuestas**                                         |
@@ -50,8 +51,7 @@ Este método nos da una vulnerabilidad de **inyección SQL**, permitiendo a un a
 
 
 
-!()[Pasted image 20250120120731.png]
-![[Pasted image 20250120120731.png]]
+![](zap.png)
 
 
 
