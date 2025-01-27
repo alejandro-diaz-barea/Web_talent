@@ -13,7 +13,7 @@ Cuando se inyecta en el campo usuario el valor ' " ' , lanza un error que nos di
 | **Del formulario de la página ...**                                | Login                                                  |
 | **La consulta SQL que se ejecuta es ...**                          | `SELECT userId, password FROM users WHERE username=""` |
 | **Campos del formulario web utilizados en la consulta SQL ...**    | `username`                                             |
-| **Campos del formulario web NO utilizados en la consulta SQL ...** | `username`                                             |
+| **Campos del formulario web NO utilizados en la consulta SQL ...** | `password`                                             |
 
 
 1.b) 
