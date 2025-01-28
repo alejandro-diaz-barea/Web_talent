@@ -1,3 +1,5 @@
+Alejandro Díaz Barea
+
 # Informe técnico
 [informe_tecnico.md](informe_tecnico.md)
 
